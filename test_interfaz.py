@@ -1,13 +1,14 @@
 import unittest
 
-from maquina_cafe import Vaso, Cafetera, Azucarero, MaquinaDeCafe
 from interfaz import InterfazConsola, crear_maquina
 
 
 def ejecutar(maquina, respuestas):
+    """Corre la interfaz con respuestas simuladas y devuelve todo lo que mostró."""
     entradas = iter(respuestas)
     salida = []
-    InterfazConsola(maquina, entrada=lambda _="": next(entradas), salida=salida.append).ejecutar()
+    InterfazConsola(maquina, entrada=lambda _="": next(entradas),
+                    salida=salida.append).ejecutar()
     return "\n".join(salida)
 
 
